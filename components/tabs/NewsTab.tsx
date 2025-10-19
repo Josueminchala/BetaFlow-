@@ -107,7 +107,7 @@ useEffect(() => {
           category: 'General',
           sentiment: 'neutral',
           readTime: '3 min read',
-          audioAvailable: false,
+          audioAvailable: item.audioAvailable || false,
         }));
 
         setNews(formatted);
@@ -210,7 +210,7 @@ const keywords = ['finance', 'stock', 'trade', 'bitcoin', 'crypto', 'market', 'n
 <FinanceToggle checked={financeOnly} onChange={() => setFinanceOnly(!financeOnly)} />
       {/* News List */}
       <div className="grid gap-4">
-        {news.map((newsItem) => (
+        {visibleNews.map((newsItem) => (
           <Card
             key={newsItem.id}
             className="bg-slate-800/50 border-slate-700 hover:bg-slate-800 transition-colors cursor-pointer"
